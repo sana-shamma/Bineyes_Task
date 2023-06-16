@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Header -->
+<header>
+	<div class="container">
+		<div class="slider-container">
+			<div class="intro-text">
+				<div class="intro-lead-in">Welcome To Lattes!</div>
+				<div class="intro-heading">It's Nice To Meet You</div>
+				<a href="#Services" class="page-scroll btn btn-xl">Discover Us More</a>
+			</div>
+		</div>
+	</div>
+</header>
+<section id="Services" class="light-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<div class="section-title">
+					<h2>Services</h2>
+					<p>Our range of services is the best way to showcase our expertise.
+						Browse through our offerings and you'll find the perfect solution for your needs.</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<!-- start Services -->
+			<div class="col-md-4">
+				<div class="ot-portfolio-item">
+					<figure class="effect-bubba">
+						<img src="{% static 'images/demo/portfolio-1.jpg' %}" alt="Cloud Solution"
+							class="img-responsive" />
+						<figcaption>
+							<h2>Cloud Solution</h2>
+							<p>Consultation, Developing</p>
+						</figcaption>
+					</figure>
+				</div>
+			</div>
+			<!-- end Services -->
+			<!-- start Services -->
+			<div class="col-md-4">
+				<div class="ot-portfolio-item">
+					<figure class="effect-bubba">
+						<img src="{% static 'images/demo/portfolio-2.jpg' %}" alt="IOT Services"
+							class="img-responsive" />
+						<figcaption>
+							<h2>IOT Services</h2>
+							<p>Developing, Deployment</p>
+						</figcaption>
+					</figure>
+				</div>
+			</div>
+			<!-- end Services -->
+			<!-- start Services -->
+			<div class="col-md-4">
+				<div class="ot-portfolio-item">
+					<figure class="effect-bubba">
+						<img src="{% static 'images/demo/portfolio-3.jpg' %}" alt="Cybersecurity"
+							class="img-responsive" />
+						<figcaption>
+							<h2>Cybersecurity</h2>
+							<p>Hardware, Software</p>
+						</figcaption>
+					</figure>
+				</div>
+			</div>
+			<!-- end Services -->
+		</div>
+	</div><!-- end container -->
+</section>
+<section id="subscribe">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<div class="section-title">
+					<h2>Subscribe</h2>
+					<p>Subscribe to our newsletter to receive updates and special offers.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<form method="post" name="subscribeForm" id="subscribeForm" novalidate action="{% url 'greeting_page' %}?name={{ nameInput.value }}">
+				{% csrf_token %}
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<input name="name" type="text" class="form-control" placeholder="Your Name *" id="nameInput"
+								required pattern="[a-zA-Z ]+"
+								data-validation-required-message="Please enter your name using only letters.">
+							<p class="text-danger" id="name-error"> </p>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<input name="email" type="email" class="form-control" placeholder="Your Email *"
+								id="emailInput" required
+								data-validation-required-message="Please enter your email address.">
+							<p class="text-danger" id="email-error"> </p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<button type="submit" class="btn">Subscribe</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+<p id="back-top">
+	<a href="#top"><i class="fa fa-angle-up"></i></a>
+</p>
+<script src="{% static 'js/subscribevalidation.js'%}"></script>
+{% endblock %}
